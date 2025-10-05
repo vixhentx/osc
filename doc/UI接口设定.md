@@ -30,11 +30,11 @@ $$
     - `数据内容`: 长度由属性ID的类型决定
 
 ## 属性定义
-[二进制描述文件详见此处(data_stream.ksy)](../software/common/data_stream.ksy)
+[二进制描述文件详见此处(data_stream.ksy)](../common/data_stream.ksy)
 
 |   枚举id  |   名称    |   类型    |   位数    |   说明    |
 |   ----    |   ----    |   ----    |   ----    |   ----    |
-|   1       |   adc     |   整数    |   16      |   ADC输出 |
+|   1       |   volt    |   整数    |   16      | 信号电压  |
 |   2       |   freq    |   实数    |   32      |   频率    |
 |   3       |   period  |   实数    |   32      |   周期    |
 |   4       |   duty    |   实数    |   32      |   占空比  |
