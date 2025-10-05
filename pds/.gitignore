@@ -1,2 +1,4 @@
 logbackup
 pds.log
+stderr.log
+stdout.log
