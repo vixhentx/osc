@@ -12,35 +12,55 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <AvaloniaResource Include="Assets\**"/>
+        <AvaloniaResource Include="Assets\**\*" />
         <Compile Include="$(KaitaiOutputDir)/**/*.cs" />
+        <Compile Update="Assets\Resources.Designer.cs">
+          <DesignTime>True</DesignTime>
+          <AutoGen>True</AutoGen>
+          <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+        <Compile Update="Assets\Resources.zh-CN.Designer.cs">
+          <DesignTime>True</DesignTime>
+          <AutoGen>True</AutoGen>
+          <DependentUpon>Resources.zh-CN.resx</DependentUpon>
+        </Compile>
+        <Compile Update="Assets\Resources.Designer.cs">
+          <DesignTime>True</DesignTime>
+          <AutoGen>True</AutoGen>
+          <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia"/>
-        <PackageReference Include="Avalonia.Themes.Fluent"/>
-        <PackageReference Include="Avalonia.Fonts.Inter"/>
+        <PackageReference Include="Avalonia" />
+        <PackageReference Include="Avalonia.Themes.Fluent" />
+        <PackageReference Include="Avalonia.Fonts.Inter" />
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
         <PackageReference Include="Avalonia.Diagnostics">
             <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
             <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="CommunityToolkit.Mvvm"/>
+        <PackageReference Include="CommunityToolkit.Mvvm" />
         <PackageReference Include="KaitaiStruct.Runtime.CSharp" />
+        <PackageReference Include="LiveCharts" />
+        <PackageReference Include="LiveChartsCore.SkiaSharpView.Avalonia" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Update="Assets\Resources.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
     </ItemGroup>
     
     <!-- 定义 Kaitai 相关任务 -->
-    <Target Name="KaitaiCompile" BeforeTargets="Build"
-            Inputs="$(KaitaiSourceDir)/**/*.ksy"
-            Outputs="$(KaitaiOutputDir)/**/*.cs">
+    <Target Name="KaitaiCompile" BeforeTargets="Build" Inputs="$(KaitaiSourceDir)/**/*.ksy" Outputs="$(KaitaiOutputDir)/**/*.cs">
         <MakeDir Directories="$(KaitaiOutputDir)" />
         <!-- Windows 版本 -->
-        <Exec Command="$(KaitaiCompiler) -t csharp --outdir $(KaitaiOutputDir) $(KaitaiSourceDir)/*.ksy"
-              Condition=" '$(OS)' == 'Windows_NT' " />
+        <Exec Command="$(KaitaiCompiler) -t csharp --outdir $(KaitaiOutputDir) $(KaitaiSourceDir)/*.ksy" Condition=" '$(OS)' == 'Windows_NT' " />
     
         <!-- Linux/macOS 版本 -->
-        <Exec Command="$(KaitaiCompiler) -t csharp --outdir $(KaitaiOutputDir) $(KaitaiSourceDir)/*.ksy"
-              Condition=" '$(OS)' != 'Windows_NT' " />
+        <Exec Command="$(KaitaiCompiler) -t csharp --outdir $(KaitaiOutputDir) $(KaitaiSourceDir)/*.ksy" Condition=" '$(OS)' != 'Windows_NT' " />
         
         <Message Text="Kaitai compiled successfully." Importance="high" />
     </Target>

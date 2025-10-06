@@ -34,15 +34,15 @@ types:
         type:
           switch-on: id
           cases:
-            'property_enum::volt': s2
+            'property_enum::volt': f4
             'property_enum::freq': f4
-            'property_enum::peroid': f4
+            'property_enum::period': f4
             'property_enum::duty': f4
             'property_enum::amp': f4
 enums:
   property_enum:
     1: volt
     2: freq
-    3: peroid
+    3: period
     4: duty
     5: amp
