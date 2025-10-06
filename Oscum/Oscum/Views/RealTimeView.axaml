@@ -1,0 +1,46 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Avalonia;assembly=LiveChartsCore.SkiaSharpView.Avalonia"
+             xmlns:views="clr-namespace:Oscum.Views"
+             xmlns:vm="clr-namespace:Oscum.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Oscum.Views.RealTimeView"
+             x:DataType="vm:RealTimeViewModel">
+    <Panel>
+        <lvc:CartesianChart x:Name="Chart" Margin="10"
+            ZoomMode="Both">
+            <lvc:CartesianChart.XAxes>
+                <lvc:XamlAxis
+                    AxisName="{Binding XAxisName}"
+                    SubseparatorsCount="9">
+                </lvc:XamlAxis>
+            </lvc:CartesianChart.XAxes>
+            <lvc:CartesianChart.YAxes>
+                <lvc:XamlAxis 
+                    AxisName="{Binding YAxisName}">
+                </lvc:XamlAxis>
+            </lvc:CartesianChart.YAxes>
+        </lvc:CartesianChart>
+        
+        <UniformGrid HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="100,10,10,10"
+                     Rows="1">
+            <TextBlock>
+                <Run Text="频率:"></Run>
+                <Run Text="{Binding FreqUnit}"></Run>
+                <Run Text="{Binding Freq}"></Run>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="周期:"></Run>
+                <Run Text="{Binding FreqUnit}"></Run>
+                <Run Text="{Binding Freq}"></Run>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="占空比:"></Run>
+                <Run Text="{Binding FreqUnit}"></Run>
+                <Run Text="{Binding Freq}"></Run>
+            </TextBlock>
+        </UniformGrid>
+    </Panel>
+</UserControl>

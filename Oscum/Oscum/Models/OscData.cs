@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Avalonia.Data;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Kaitai;
 using PropertyEnum = Kaitai.DataStream.PropertyEnum;
@@ -18,7 +17,7 @@ public class OscData : ObservableObject
     {
         var oldValue = GetProperty(property);
         if (Math.Abs(oldValue - value) < 0.001) return;
-        
+
         OnPropertyChanging(property.ToString());
         properties[property] = value;
         OnPropertyChanged(property.ToString());

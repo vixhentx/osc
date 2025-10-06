@@ -6,7 +6,7 @@
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
 
         <!-- 定义 Kaitai 相关路径 -->
-        <KaitaiSourceDir>$(MSBuildThisFileDirectory)/../../common</KaitaiSourceDir>
+        <KaitaiSourceDir>$(MSBuildThisFileDirectory)../../common</KaitaiSourceDir>
         <KaitaiOutputDir>$(MSBuildThisFileDirectory)Service/Kaitai</KaitaiOutputDir>
         <KaitaiCompiler>ksc</KaitaiCompiler>
     </PropertyGroup>
@@ -52,16 +52,15 @@
         <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       </EmbeddedResource>
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Service\Kaitai\" />
+    </ItemGroup>
     
     <!-- 定义 Kaitai 相关任务 -->
-    <Target Name="KaitaiCompile" BeforeTargets="Build" Inputs="$(KaitaiSourceDir)/**/*.ksy" Outputs="$(KaitaiOutputDir)/**/*.cs">
+    <Target Name="KaitaiCompile" AfterTargets="Build" Inputs="$(KaitaiSourceDir)/*.ksy" Outputs="$(KaitaiOutputDir)/*.cs">
         <MakeDir Directories="$(KaitaiOutputDir)" />
-        <!-- Windows 版本 -->
-        <Exec Command="$(KaitaiCompiler) -t csharp --outdir $(KaitaiOutputDir) $(KaitaiSourceDir)/*.ksy" Condition=" '$(OS)' == 'Windows_NT' " />
-    
-        <!-- Linux/macOS 版本 -->
-        <Exec Command="$(KaitaiCompiler) -t csharp --outdir $(KaitaiOutputDir) $(KaitaiSourceDir)/*.ksy" Condition=" '$(OS)' != 'Windows_NT' " />
-        
-        <Message Text="Kaitai compiled successfully." Importance="high" />
+        <Exec Command="$(KaitaiCompiler) -t csharp --outdir $(KaitaiOutputDir) $(KaitaiSourceDir)/*.ksy"/>
+        <Message Text="Kaitai compiled successfully." Importance="high"/>
     </Target>
 </Project>
