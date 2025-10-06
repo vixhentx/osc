@@ -31,14 +31,7 @@ types:
         
       - id: value
         doc: 属性值
-        type:
-          switch-on: id
-          cases:
-            'property_enum::volt': f4
-            'property_enum::freq': f4
-            'property_enum::period': f4
-            'property_enum::duty': f4
-            'property_enum::amp': f4
+        type: f4
 enums:
   property_enum:
     1: volt

@@ -3,11 +3,25 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:Oscum.ViewModels"
+             xmlns:view="clr-namespace:Oscum.Views"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Oscum.Views.MainView"
              x:DataType="vm:MainViewModel">
-  <Design.DataContext>
+    <Design.DataContext>
     <vm:MainViewModel />
-  </Design.DataContext>
-
+    </Design.DataContext>
+    <TabControl>
+        <TabItem Header="实时">
+            <view:RealTimeView/>
+        </TabItem>
+        <TabItem Header="测试">
+            
+        </TabItem>
+        <TabItem Header="设置">
+            
+        </TabItem>
+        <TabItem Header="关于">
+            
+        </TabItem>
+    </TabControl>
 </UserControl>
