@@ -1,0 +1,43 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:models="clr-namespace:Oscum.Models"
+             xmlns:converters="clr-namespace:Oscum.Converters"
+             xmlns:vm="clr-namespace:Oscum.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Oscum.Views.TestView"
+             x:DataType="vm:TestViewModel">
+    <UserControl.Resources>
+        <converters:TureToGreenConverter x:Key="TureToGreenConverter"/>
+    </UserControl.Resources>
+    <DockPanel>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Right">
+            <Button Content="添加" Command="{Binding AppendItemCommand}"/>
+            <Button Content="移除" Command="{Binding RemoveItemCommand}"/>
+        </StackPanel>
+        <ListBox ItemsSource="{Binding Items}" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}">
+            <ListBox.ItemTemplate>
+                <DataTemplate x:DataType="models:TestItem">
+                    <Border Background="{Binding IsPassed, Converter={StaticResource TureToGreenConverter}}">
+                        <UniformGrid Rows="1">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="项目: "/>
+                                <ComboBox ItemsSource="{Binding AllProperties}" SelectedItem="{Binding Property, Mode=TwoWay}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="目标值: "/>
+                                <TextBox Text="{Binding Target}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="容差: "/>
+                                <NumericUpDown Value="{Binding Tolerance, Mode=TwoWay}" Minimum="0" Maximum="100"/>
+                                <Label Content="%"/>
+                            </StackPanel>
+                        </UniformGrid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </DockPanel>
+</UserControl>
