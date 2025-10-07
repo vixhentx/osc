@@ -13,6 +13,7 @@
     <PackageVersion Include="Avalonia.Desktop" Version="11.3.2" />
     <PackageVersion Include="Avalonia.Android" Version="11.3.2" />
     <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+    <PackageVersion Include="DynamicData" Version="9.4.1" />
     <PackageVersion Include="KaitaiStruct.Runtime.CSharp" Version="0.11.0" />
     <PackageVersion Include="LiveCharts" Version="0.9.7" />
     <PackageVersion Include="LiveChartsCore.SkiaSharpView.Avalonia" Version="2.0.0-rc6.1" />

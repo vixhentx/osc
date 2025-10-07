@@ -8,6 +8,9 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Oscum.Views.TestView"
              x:DataType="vm:TestViewModel">
+    <Design.DataContext>
+        <vm:TestViewModel/>
+    </Design.DataContext>
     <UserControl.Resources>
         <converters:TureToGreenConverter x:Key="TureToGreenConverter"/>
     </UserControl.Resources>
@@ -16,7 +19,8 @@
             <Button Content="添加" Command="{Binding AppendItemCommand}"/>
             <Button Content="移除" Command="{Binding RemoveItemCommand}"/>
         </StackPanel>
-        <ListBox ItemsSource="{Binding Items}" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}">
+        <ListBox ItemsSource="{Binding Items}" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"
+                 SelectionMode="Single">
             <ListBox.ItemTemplate>
                 <DataTemplate x:DataType="models:TestItem">
                     <Border Background="{Binding IsPassed, Converter={StaticResource TureToGreenConverter}}">

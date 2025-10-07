@@ -41,6 +41,7 @@
             <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
         </PackageReference>
         <PackageReference Include="CommunityToolkit.Mvvm" />
+        <PackageReference Include="DynamicData" />
         <PackageReference Include="KaitaiStruct.Runtime.CSharp" />
         <PackageReference Include="LiveCharts" />
         <PackageReference Include="LiveChartsCore.SkiaSharpView.Avalonia" />
