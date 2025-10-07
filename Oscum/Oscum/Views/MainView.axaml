@@ -21,7 +21,7 @@
             <view:SettingView DataContext="{Binding SettingsVM}"/>
         </TabItem>
         <TabItem Header="关于">
-            
+            <view:AboutView/>
         </TabItem>
     </TabControl>
 </UserControl>
