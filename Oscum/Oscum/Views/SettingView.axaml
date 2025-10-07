@@ -1,0 +1,35 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Oscum.ViewModels"
+             xmlns:models="clr-namespace:Oscum.Models"
+             xmlns:converters="clr-namespace:Oscum.Converters"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Oscum.Views.SettingView"
+             x:DataType="vm:SettingViewModel">
+    <Design.DataContext>
+        <vm:SettingViewModel />
+    </Design.DataContext>
+    <UserControl.Resources>
+        <converters:EnumNameConverter x:Key="EnumNameConverter"/>
+    </UserControl.Resources>
+    <ItemsControl ItemsSource="{Binding Items}">
+        <ItemsControl.ItemTemplate>
+            <DataTemplate x:DataType="models:SettingItem">
+                <Panel>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left"
+                               Text="{Binding Id, Converter={StaticResource EnumNameConverter}}"/>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Run Text="当前值: "/>
+                        <Run Text="{Binding NowValue}"/>
+                    </TextBlock>
+                    <StackPanel  VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">
+                        <NumericUpDown Value="{Binding NewValue}" BorderThickness="0"/>
+                        <Button Content="应用" Command="{Binding ApplyCommand}"/>
+                    </StackPanel>
+                </Panel>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
+</UserControl>

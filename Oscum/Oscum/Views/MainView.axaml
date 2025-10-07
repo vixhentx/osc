@@ -18,7 +18,7 @@
             <view:TestView DataContext="{Binding TestVM}"/>
         </TabItem>
         <TabItem Header="设置">
-            
+            <view:SettingView DataContext="{Binding SettingsVM}"/>
         </TabItem>
         <TabItem Header="关于">
             

@@ -8,7 +8,7 @@ namespace Oscum.Models;
 public partial class TestItem : ObservableObject
 {
     [ObservableProperty]
-    public DataStream.PropertyEnum property = 0;
+    public DataStream.RealtimeEnum property = 0;
 
     [ObservableProperty]
     public double target = 0.0;
@@ -20,5 +20,5 @@ public partial class TestItem : ObservableObject
     [ObservableProperty]
     public bool isPassed = false;
     
-    public static IEnumerable<DataStream.PropertyEnum> AllProperties { get; } = Enum.GetValues<DataStream.PropertyEnum>();
+    public static IEnumerable<DataStream.RealtimeEnum> AllProperties { get; } = Enum.GetValues<DataStream.RealtimeEnum>();
 }

@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Kaitai;
-using PropertyEnum = Kaitai.DataStream.PropertyEnum;
+
+using RealTimeEnum = Kaitai.DataStream.RealtimeEnum;
+using SettingEnum = Kaitai.DataStream.SettingEnum;
 
 namespace Oscum.Models;
 
@@ -11,26 +13,33 @@ public class OscData : ObservableObject
 
     #region 属性管理
 
-    private readonly Dictionary<PropertyEnum, double> properties = [];
-    public double GetProperty(PropertyEnum property) => properties[property];
-    public void SetProperty(PropertyEnum property, double value)
+    private readonly Dictionary<RealTimeEnum, double> realTimeDatas = [];
+    private readonly Dictionary<SettingEnum, ushort> settings = [];
+    public double this[RealTimeEnum realtimeData] 
     {
-        var oldValue = GetProperty(property);
-        if (Math.Abs(oldValue - value) < 0.001) return;
+        get => realTimeDatas[realtimeData];
+        set
+        {
+            double oldValue = this[realtimeData];
+            if (Math.Abs(oldValue - value) < 0.001) return;
 
-        OnPropertyChanging(property.ToString());
-        properties[property] = value;
-        OnPropertyChanged(property.ToString());
+            OnPropertyChanging(realtimeData.ToString());
+            realTimeDatas[realtimeData] = value;
+            OnPropertyChanged(realtimeData.ToString());
+        }
     }
-    public double this[PropertyEnum property] 
+    public ushort this[SettingEnum setting]
     {
-        get => GetProperty(property);
-        set => SetProperty(property, value);
-    }
-    public double this[string property]
-    {
-        get => GetProperty(Enum.Parse<PropertyEnum>(property));
-        set => SetProperty(Enum.Parse<PropertyEnum>(property), value);
+        get => settings[setting];
+        set
+        {
+            ushort oldValue = this[setting];
+            if (oldValue == value) return;
+
+            OnPropertyChanging(setting.ToString());
+            settings[setting] = value;
+            OnPropertyChanged(setting.ToString());
+        }
     }
 
     #endregion
@@ -45,9 +54,13 @@ public class OscData : ObservableObject
         ShouldNotifyOutputBuffer = false;
         using KaitaiStream ks = new(rawDataStream);
         DataStream data = new(ks);
-        foreach (DataStream.Property property in data.Properties)
+        foreach (DataStream.RealtimeData realtimeData in data.RealtimeDatas)
         {
-            this[property.Id] = property.Value;
+            this[realtimeData.Id] = realtimeData.Value;
+        }
+        foreach (DataStream.Setting setting in data.Settings)
+        {
+            this[setting.Id] = setting.Value;
         }
         ShouldNotifyOutputBuffer = true;
     }
