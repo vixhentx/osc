@@ -27,19 +27,19 @@
         <UniformGrid HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="100,10,10,10"
                      Rows="1">
             <TextBlock>
-                <Run Text="频率:"></Run>
-                <Run Text="{Binding FreqUnit}"></Run>
-                <Run Text="{Binding Freq}"></Run>
+                <Run Text="频率:"/>
+                <Run Text="{Binding FreqUnit}"/>
+                <Run Text="{Binding Freq}"/>
             </TextBlock>
             <TextBlock>
-                <Run Text="周期:"></Run>
-                <Run Text="{Binding FreqUnit}"></Run>
-                <Run Text="{Binding Freq}"></Run>
+                <Run Text="周期:"/>
+                <Run Text="{Binding TimeUnit}"/>
+                <Run Text="{Binding Period}"/>
             </TextBlock>
             <TextBlock>
-                <Run Text="占空比:"></Run>
-                <Run Text="{Binding FreqUnit}"></Run>
-                <Run Text="{Binding Freq}"></Run>
+                <Run Text="占空比:"/>
+                <Run Text="{Binding Duty}"/>
+                <Run Text="%"/>
             </TextBlock>
         </UniformGrid>
     </Panel>

@@ -12,10 +12,10 @@
     </Design.DataContext>
     <TabControl>
         <TabItem Header="实时">
-            <view:RealTimeView/>
+            <view:RealTimeView DataContext="{Binding RealTimeVM}"/>
         </TabItem>
         <TabItem Header="测试">
-            
+            <view:TestView DataContext="{Binding TestVM}"/>
         </TabItem>
         <TabItem Header="设置">
             
