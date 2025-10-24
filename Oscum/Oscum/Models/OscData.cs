@@ -13,8 +13,10 @@ public class OscData : ObservableObject
 
     #region 属性管理
 
+    private byte magic;
     private readonly Dictionary<RealTimeEnum, double> realTimeDatas = [];
     private readonly Dictionary<SettingEnum, ushort> settings = [];
+    private Dictionary<SettingEnum, ushort> outputBuffer = [];
     public double this[RealTimeEnum realtimeData] 
     {
         get => realTimeDatas[realtimeData];
@@ -39,6 +41,8 @@ public class OscData : ObservableObject
             OnPropertyChanging(setting.ToString());
             settings[setting] = value;
             OnPropertyChanged(setting.ToString());
+            if (ShouldNotifyOutputBuffer)
+                outputBuffer[setting] = value;
         }
     }
 
@@ -54,20 +58,28 @@ public class OscData : ObservableObject
         ShouldNotifyOutputBuffer = false;
         using KaitaiStream ks = new(rawDataStream);
         DataStream data = new(ks);
-        foreach (DataStream.RealtimeData realtimeData in data.RealtimeDatas)
+        magic = data.StartMagic;
+        foreach (var realtimeData in data.RealtimeDatas)
         {
             this[realtimeData.Id] = realtimeData.Value;
         }
-        foreach (DataStream.Setting setting in data.Settings)
+        foreach (var setting in data.Settings)
         {
             this[setting.Id] = setting.Value;
         }
         ShouldNotifyOutputBuffer = true;
     }
-    public static OscData operator <<(OscData target, byte[] rawDataStream)
+
+    public byte[] ToBytes()
     {
-        target.Parse(rawDataStream);
-        return target;
+        List<byte> bytes = [magic,0, (byte)outputBuffer.Count];   //固定帧头,没有实时数据,设置数据
+        foreach (var (e, v) in outputBuffer)
+        {
+            bytes.Add((byte)e);
+            bytes.AddRange(BitConverter.GetBytes(v));
+        }
+        outputBuffer = [];
+        return bytes.ToArray();
     }
 
     #endregion

@@ -5,11 +5,12 @@
              xmlns:vm="clr-namespace:Oscum.ViewModels"
              xmlns:models="clr-namespace:Oscum.Models"
              xmlns:converters="clr-namespace:Oscum.Converters"
+             xmlns:design="clr-namespace:Oscum.Design"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Oscum.Views.SettingView"
              x:DataType="vm:SettingViewModel">
     <Design.DataContext>
-        <vm:SettingViewModel />
+        <design:SettingViewDesignModel />
     </Design.DataContext>
     <UserControl.Resources>
         <converters:EnumNameConverter x:Key="EnumNameConverter"/>

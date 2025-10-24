@@ -5,10 +5,11 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Kaitai;
 using Oscum.Models;
+using Oscum.Service;
 
 namespace Oscum.ViewModels;
 
-public partial class TestViewModel : ViewModelBase
+public partial class TestViewModel(ComUnitService comUnitService) : ViewModelBase
 {
     
     [ObservableProperty]
@@ -28,4 +29,6 @@ public partial class TestViewModel : ViewModelBase
     
     private bool CanRemoveItem() => 
         SelectedIndex >= 0 && SelectedIndex < Items.Count;
+    
+    public ComUnitService ComUnitService { get; } = comUnitService;
 }

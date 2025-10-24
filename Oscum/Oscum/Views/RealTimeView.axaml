@@ -3,11 +3,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Avalonia;assembly=LiveChartsCore.SkiaSharpView.Avalonia"
-             xmlns:views="clr-namespace:Oscum.Views"
              xmlns:vm="clr-namespace:Oscum.ViewModels"
+             xmlns:design="clr-namespace:Oscum.Design"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Oscum.Views.RealTimeView"
              x:DataType="vm:RealTimeViewModel">
+    <Design.DataContext><design:RealTimeViewDesignModel/></Design.DataContext>
     <Panel>
         <lvc:CartesianChart x:Name="Chart" Margin="10"
             ZoomMode="Both">
@@ -29,16 +30,16 @@
             <TextBlock>
                 <Run Text="频率:"/>
                 <Run Text="{Binding FreqUnit}"/>
-                <Run Text="{Binding Freq}"/>
+                <Run Text="{Binding ComUnitService.ComUnit[Freq], FallbackValue=null}"/>
             </TextBlock>
             <TextBlock>
                 <Run Text="周期:"/>
                 <Run Text="{Binding TimeUnit}"/>
-                <Run Text="{Binding Period}"/>
+                <Run Text="{Binding ComUnitService.ComUnit[Period], FallbackValue=null}"/>
             </TextBlock>
             <TextBlock>
                 <Run Text="占空比:"/>
-                <Run Text="{Binding Duty}"/>
+                <Run Text="{Binding ComUnitService.ComUnit[Duty], FallbackValue=null}"/>
                 <Run Text="%"/>
             </TextBlock>
         </UniformGrid>

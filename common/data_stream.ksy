@@ -10,7 +10,7 @@ seq:
     type: u1
     valid: 0b0110_1011
     
-  - id: num_realtime_data
+  - id: num_realtime_datas
     doc: 实时数据数量
     type: u1
     
@@ -18,7 +18,7 @@ seq:
     doc: 实时数据数组
     type: realtime_data
     repeat: expr
-    repeat-expr: num_realtime_data
+    repeat-expr: num_realtime_datas
   
   - id: num_settings
     doc: 设置数量
