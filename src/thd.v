@@ -1,250 +1,149 @@
-module thd_calculator #(//著述
-    parameter DATA_WIDTH      = 12,
-    parameter BUFFER_ADDR_WIDTH = 10
-) (
-    input wire                      clk,
-    input wire                      reset,
-    input wire                      start_analysis,
-    input wire [DATA_WIDTH-1:0]     bram_data_in,
-    
-    output reg [BUFFER_ADDR_WIDTH-1:0] bram_read_address,
-    output reg [15:0]               thd_result,
-    output reg                      done
+module thd_calculator (
+    input wire clk,
+    input wire reset_n,
+    input wire [15:0] fft_real_in [0:1023],  // 1024点FFT实部输入
+    input wire [15:0] fft_imag_in [0:1023],  // 1024点FFT虚部输入
+    input wire fft_valid,                    // FFT数据有效信号
+    output reg [31:0] thd_result,            // THD计算结果
+    output reg thd_valid                     // THD结果有效信号
 );
 
-    // 定义状态机状态
-    localparam IDLE          = 3'd0;
-    localparam READ_DATA     = 3'd1;
-    localparam FFT_PROCESS   = 3'd2;
-    localparam CALC_ENERGY   = 3'd3;
-    localparam CALC_THD      = 3'd4;
-    localparam DONE_STATE    = 3'd5;
+    // THD计算参数
+    localparam HARMONIC_BINS = 5;            // 计算前5次谐波（2~6次）
+    localparam FFT_SIZE = 1024;              // FFT点数
     
-    reg [2:0] state, next_state;
+    // 内部寄存器
+    reg [31:0] fundamental_power;            // 基波功率
+    reg [31:0] harmonic_power;               // 谐波总功率
+    reg [31:0] thd_temp;                     // THD临时结果
     
-    // 样本数量 (2^BUFFER_ADDR_WIDTH)
-    localparam SAMPLE_NUM = 1 << BUFFER_ADDR_WIDTH;
+    reg [2:0] calc_state;                    // 主状态机
+    reg [10:0] bin_counter;                  // FFT频点计数器（0~1023）
+    reg [10:0] fundamental_bin;              // 动态检测到的基波频点
+    reg [31:0] max_power;                    // 最大功率（用于基波检测）
+    reg [3:0] harmonic_counter;              // 谐波次数计数器（2~6）
+    reg calculating;                         // 计算标志
     
-    // 寄存器用于存储FFT结果
-    reg signed [DATA_WIDTH:0] fft_real [0:SAMPLE_NUM/2-1];
-    reg signed [DATA_WIDTH:0] fft_imag [0:SAMPLE_NUM/2-1];
-    reg [BUFFER_ADDR_WIDTH-1:0] sample_count;
+    // 状态定义
+    localparam IDLE = 3'b000;                // 空闲状态
+    localparam DETECT_FUNDAMENTAL = 3'b001;  // 检测基波位置
+    localparam CALC_FUNDAMENTAL = 3'b010;    // 计算基波功率
+    localparam CALC_HARMONICS = 3'b011;      // 计算谐波功率
+    localparam COMPUTE_THD = 3'b100;         // 计算THD
+    localparam DONE = 3'b101;                // 计算完成
     
-    // 存储原始数据的寄存器
-    reg [DATA_WIDTH-1:0] waveform_data [0:SAMPLE_NUM-1];
-    
-    // 能量计算寄存器
-    reg [31:0] fundamental_energy;
-    reg [31:0] harmonic_energy;
-    reg [31:0] total_energy;
-    
-    // FFT模块接口 (假设使用一个IP核)
-    wire fft_done;
-    wire [DATA_WIDTH-1:0] fft_real_out, fft_imag_out;
-    wire [BUFFER_ADDR_WIDTH-1:0] fft_index;
-    reg fft_start;
-    
-    // 实例化FFT模块 (这里假设有一个FFT IP核)
-    // 实际实现中需要根据使用的FFT IP进行调整
-    fft_ip fft_inst (
-        .clk(clk),
-        .reset(reset),
-        .start(fft_start),
-        .data_in(waveform_data[sample_count]),
-        .data_valid(/* 需要连接 */),
-        .real_out(fft_real_out),
-        .imag_out(fft_imag_out),
-        .index(fft_index),
-        .done(fft_done)
-    );
-    
-    // 状态寄存器更新
-    always @(posedge clk or posedge reset) begin
-        if (reset) begin
-            state <= IDLE;
-        end else begin
-            state <= next_state;
+    // 计算复数幅度的平方（功率）
+    function [31:0] calculate_power;
+        input [15:0] real_part;
+        input [15:0] imag_part;
+        reg [31:0] real_sq, imag_sq;
+        begin
+            real_sq = $signed(real_part) * $signed(real_part);  // 带符号运算
+            imag_sq = $signed(imag_part) * $signed(imag_part);
+            calculate_power = real_sq + imag_sq;
         end
-    end
-    
-    // 下一状态逻辑
-    always @(*) begin
-        case (state)
-            IDLE: next_state = start_analysis ? READ_DATA : IDLE;
-            READ_DATA: next_state = (sample_count == SAMPLE_NUM-1) ? FFT_PROCESS : READ_DATA;
-            FFT_PROCESS: next_state = fft_done ? CALC_ENERGY : FFT_PROCESS;
-            CALC_ENERGY: next_state = (sample_count == SAMPLE_NUM/2-1) ? CALC_THD : CALC_ENERGY;
-            CALC_THD: next_state = DONE_STATE;
-            DONE_STATE: next_state = IDLE;
-            default: next_state = IDLE;
-        endcase
-    end
-    
-    // 输出逻辑
-    always @(posedge clk or posedge reset) begin
-        if (reset) begin
-            done <= 1'b0;
-            thd_result <= 16'd0;
-        end else begin
-            done <= (state == DONE_STATE);
-            // thd_result将在CALC_THD状态中赋值
-        end
-    end
-    
-    // 读取数据和FFT处理
-    always @(posedge clk or posedge reset) begin
-        if (reset) begin
-            bram_read_address <= {BUFFER_ADDR_WIDTH{1'b0}};
-            sample_count <= 0;
-            fft_start <= 1'b0;
-        end else begin
-            case (state)
-                IDLE: begin
-                    bram_read_address <= {BUFFER_ADDR_WIDTH{1'b0}};
-                    sample_count <= 0;
-                    fft_start <= 1'b0;
-                end
-                
-                READ_DATA: begin
-                    // 存储从BRAM读取的数据
-                    waveform_data[sample_count] <= bram_data_in;
-                    
-                    // 增加地址和计数器
-                    if (sample_count < SAMPLE_NUM-1) begin
-                        sample_count <= sample_count + 1;
-                        bram_read_address <= bram_read_address + 1;
-                    end
-                    
-                    // 当读取完所有数据后，准备启动FFT
-                    if (sample_count == SAMPLE_NUM-1) begin
-                        fft_start <= 1'b1;
-                        sample_count <= 0; // 重置计数器用于FFT过程
-                    end
-                end
-                
-                FFT_PROCESS: begin
-                    fft_start <= 1'b0;
-                    
-                    // 存储FFT结果 (这里简化处理，实际需要根据FFT IP的接口调整)
-                    if (fft_done) begin
-                        fft_real[fft_index] <= fft_real_out;
-                        fft_imag[fft_index] <= fft_imag_out;
-                    end
-                end
-                
-                default: begin
-                    // 保持当前值
-                end
-            endcase
-        end
-    end
-    
-    // 能量计算
-    always @(posedge clk or posedge reset) begin
-        if (reset) begin
-            fundamental_energy <= 32'd0;
-            harmonic_energy <= 32'd0;
-            total_energy <= 32'd0;
-            sample_count <= 0;
-        end else begin
-            case (state)
-                CALC_ENERGY: begin
-                    if (sample_count == 0) begin
-                        // 初始化能量计算
-                        fundamental_energy <= 32'd0;
-                        harmonic_energy <= 32'd0;
-                        total_energy <= 32'd0;
-                    end
-                    
-                    // 计算每个频率分量的能量 (实部^2 + 虚部^2)
-                    if (sample_count < SAMPLE_NUM/2) begin
-                        reg [31:0] energy;
-                        energy = (fft_real[sample_count] * fft_real[sample_count]) + 
-                                 (fft_imag[sample_count] * fft_imag[sample_count]);
-                        
-                        // 基波能量 (假设第一个非零频率分量是基波)
-                        if (sample_count == 1) begin
-                            fundamental_energy <= energy;
-                        end
-                        // 谐波能量 (2次及以上谐波)
-                        else if (sample_count > 1) begin
-                            harmonic_energy <= harmonic_energy + energy;
-                        end
-                        
-                        // 总能量 (可选，用于验证)
-                        total_energy <= total_energy + energy;
-                        
-                        sample_count <= sample_count + 1;
-                    end
-                end
-                
-                IDLE: begin
-                    // 重置计数器
-                    sample_count <= 0;
-                end
-                
-                default: begin
-                    // 保持当前值
-                end
-            endcase
-        end
-    end
-    
-    // THD计算和结果输出
-    always @(posedge clk or posedge reset) begin
-        if (reset) begin
-            thd_result <= 16'd0;
-        end else begin
-            if (state == CALC_THD) begin
-                // THD = sqrt(harmonic_energy) / sqrt(fundamental_energy)
-                // 由于我们使用定点数，这里简化计算
-                
-                // 防止除以零
-                if (fundamental_energy == 0) begin
-                    thd_result <= 16'h7FFF; // 最大值表示错误
-                end else begin
-                    // 计算谐波能量与基波能量的比值 (放大1000倍表示百分比*10)
-                    // 这样0.1%的THD可以表示为1，1%表示为10，10%表示为100等
-                    reg [31:0] thd_squared;
-                    reg [15:0] thd_temp;
-                    
-                    // 计算THD平方 (harmonic_energy / fundamental_energy)
-                    thd_squared = (harmonic_energy * 10000) / fundamental_energy;
-                    
-                    // 开平方近似 (这里简化处理，实际可能需要更精确的方法)
-                    thd_temp = sqrt_approx(thd_squared);
-                    
-                    thd_result <= thd_temp;
-                end
-            end
-        end
-    end
-    
-    // 简单的开平方近似函数 (可以替换为更精确的实现)
-    function [15:0] sqrt_approx;
-        input [31:0] value;
-        reg [31:0] rem, root;
-        reg [15:0] res;
-        integer i;
-    begin
-        if (value == 0) begin
-            sqrt_approx = 0;
-        end else begin
-            rem = 0;
-            root = 0;
-            
-            for (i = 15; i >= 0; i = i - 1) begin
-                root = root << 1;
-                rem = (rem << 2) | ((value >> (i+i)) & 3);
-                if (rem >= (root << 1) + 1) begin
-                    rem = rem - ((root << 1) + 1);
-                    root = root + 1;
-                end
-            end
-            
-            sqrt_approx = root;
-        end
-    end
     endfunction
+    
+    // 主状态机逻辑
+    always @(posedge clk or negedge reset_n) begin
+        if (!reset_n) begin
+            calc_state <= IDLE;
+            thd_valid <= 0;
+            calculating <= 0;
+            fundamental_power <= 0;
+            harmonic_power <= 0;
+            thd_result <= 0;
+            bin_counter <= 0;
+            fundamental_bin <= 0;
+            max_power <= 0;
+            harmonic_counter <= 0;
+        end else begin
+            case (calc_state)
+                IDLE: begin
+                    thd_valid <= 0;
+                    // 当FFT数据有效且未在计算时，启动基波检测
+                    if (fft_valid && !calculating) begin
+                        calculating <= 1;
+                        bin_counter <= 0;          // 从0号频点开始检测
+                        max_power <= 0;            // 最大功率清零
+                        fundamental_bin <= 0;      // 基波位置清零
+                        calc_state <= DETECT_FUNDAMENTAL;
+                    end
+                end
+                
+                // 遍历所有FFT频点，找到最大功率对应的频点（基波）
+                DETECT_FUNDAMENTAL: begin
+                    if (bin_counter < FFT_SIZE) begin
+                        // 计算当前频点的功率
+                        reg [31:0] current_power;
+                        current_power = calculate_power(fft_real_in[bin_counter], 
+                                                       fft_imag_in[bin_counter]);
+                        
+                        // 如果当前功率大于历史最大值，更新基波位置
+                        if (current_power > max_power) begin
+                            max_power <= current_power;
+                            fundamental_bin <= bin_counter;
+                        end
+                        
+                        bin_counter <= bin_counter + 1;  // 下一个频点
+                    end else begin
+                        // 所有频点遍历完成，进入基波功率计算
+                        bin_counter <= 0;
+                        calc_state <= CALC_FUNDAMENTAL;
+                    end
+                end
+                
+                // 计算基波功率（使用检测到的基波位置）
+                CALC_FUNDAMENTAL: begin
+                    fundamental_power <= calculate_power(fft_real_in[fundamental_bin], 
+                                                       fft_imag_in[fundamental_bin]);
+                    harmonic_counter <= 2;  // 从2次谐波开始计算
+                    harmonic_power <= 0;    // 谐波功率累加器清零
+                    calc_state <= CALC_HARMONICS;
+                end
+                
+                // 计算各次谐波功率并累加
+                CALC_HARMONICS: begin
+                    if (harmonic_counter <= HARMONIC_BINS) begin
+                        // 计算当前次谐波的频点（基波频点 × 谐波次数）
+                        reg [10:0] harmonic_bin;
+                        harmonic_bin = fundamental_bin * harmonic_counter;
+                        
+                        // 确保谐波频点不超过FFT范围（防止越界）
+                        if (harmonic_bin < FFT_SIZE) begin
+                            harmonic_power <= harmonic_power + 
+                                            calculate_power(fft_real_in[harmonic_bin],
+                                                          fft_imag_in[harmonic_bin]);
+                        end
+                        
+                        harmonic_counter <= harmonic_counter + 1;
+                    end else begin
+                        // 所有谐波计算完成，进入THD计算
+                        calc_state <= COMPUTE_THD;
+                    end
+                end
+                
+                // 计算THD（采用定点数运算，Q16.16格式）
+                COMPUTE_THD: begin
+                    if (fundamental_power != 0) begin
+                        // THD ≈ sqrt(谐波总功率) / sqrt(基波功率)
+                        // 简化为：(谐波功率 << 16) / 基波功率（保留16位小数）
+                        thd_temp <= (harmonic_power << 16) / fundamental_power;
+                    end else begin
+                        thd_temp <= 0;  // 避免除以0
+                    end
+                    calc_state <= DONE;
+                end
+                
+                // 输出结果并回到空闲状态
+                DONE: begin
+                    thd_result <= thd_temp;
+                    thd_valid <= 1;
+                    calculating <= 0;
+                    calc_state <= IDLE;
+                end
+            endcase
+        end
+    end
 
 endmodule
