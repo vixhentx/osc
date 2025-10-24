@@ -45,6 +45,8 @@
         <PackageReference Include="KaitaiStruct.Runtime.CSharp" />
         <PackageReference Include="LiveCharts" />
         <PackageReference Include="LiveChartsCore.SkiaSharpView.Avalonia" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+        <PackageReference Include="System.IO.Ports" />
     </ItemGroup>
 
     <ItemGroup>
@@ -59,7 +61,7 @@
     </ItemGroup>
     
     <!-- 定义 Kaitai 相关任务 -->
-    <Target Name="KaitaiCompile" AfterTargets="Build" Inputs="$(KaitaiSourceDir)/*.ksy" Outputs="$(KaitaiOutputDir)/*.cs">
+    <Target Name="KaitaiCompile" BeforeTargets="Build" Inputs="$(KaitaiSourceDir)/*.ksy" Outputs="$(KaitaiOutputDir)/*.cs">
         <MakeDir Directories="$(KaitaiOutputDir)" />
         <Exec Command="$(KaitaiCompiler) -t csharp --outdir $(KaitaiOutputDir) $(KaitaiSourceDir)/*.ksy"/>
         <Message Text="Kaitai compiled successfully." Importance="high"/>

@@ -1,10 +1,12 @@
 using System.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
+using Oscum.Models;
+using Oscum.Service;
 using Oscum.Utils;
 
 namespace Oscum.ViewModels;
 
-public partial class RealTimeViewModel : ViewModelBase
+public partial class RealTimeViewModel(ComUnitService comUnitService) : ViewModelBase
 {
 
 	#region 波形显示
@@ -55,25 +57,6 @@ public partial class RealTimeViewModel : ViewModelBase
 	}
 
 	#endregion
-	
-	#region 波形参数
 
-	[ObservableProperty]
-	public double volt;
-
-	[ObservableProperty]
-	public double freq;
-
-	[ObservableProperty]
-	public double period;
-
-	[ObservableProperty]
-	public double duty;
-
-	[ObservableProperty]
-	public double amp;
-
-
-	#endregion
-
+	public ComUnitService ComUnitService { get; } = comUnitService;
 }

@@ -1,12 +1,25 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using Oscum.Service;
 
 namespace Oscum.ViewModels;
 
-public partial class MainViewModel : ViewModelBase
+public class MainViewModel(
+    ComUnitService    comUnitService,
+    RealTimeViewModel realTimeVm,
+    TestViewModel     testVm,
+    SettingViewModel  settingsVm,
+    ComViewModel      comVm
+)
+    : ViewModelBase
 {
-    public RealTimeViewModel RealTimeVM { get; } = new();
+    public ComUnitService ComUnitService { get; } = comUnitService;
 
-    public TestViewModel TestVM { get; } = new();
-    
-    public SettingViewModel SettingsVM { get; } = new();
+    public RealTimeViewModel RealTimeVM { get; } = realTimeVm;
+
+    public TestViewModel TestVM { get; } = testVm;
+
+    public SettingViewModel SettingsVM { get; } = settingsVm;
+
+    public ComViewModel ComVM { get; } = comVm;
+
+
 }

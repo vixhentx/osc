@@ -4,21 +4,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:Oscum.ViewModels"
              xmlns:view="clr-namespace:Oscum.Views"
+             xmlns:design="clr-namespace:Oscum.Design"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Oscum.Views.MainView"
              x:DataType="vm:MainViewModel">
     <Design.DataContext>
-    <vm:MainViewModel />
+    <design:MainViewDesignModel />
     </Design.DataContext>
     <TabControl>
-        <TabItem Header="实时">
+        <TabItem Header="实时" IsVisible="{Binding ComUnitService.ComUnit, Converter={x:Static ObjectConverters.IsNotNull}}">
             <view:RealTimeView DataContext="{Binding RealTimeVM}"/>
         </TabItem>
-        <TabItem Header="测试">
+        <TabItem Header="测试" IsVisible="{Binding ComUnitService.ComUnit, Converter={x:Static ObjectConverters.IsNotNull}}">
             <view:TestView DataContext="{Binding TestVM}"/>
         </TabItem>
-        <TabItem Header="设置">
+        <TabItem Header="设置" IsVisible="{Binding ComUnitService.ComUnit, Converter={x:Static ObjectConverters.IsNotNull}}">
             <view:SettingView DataContext="{Binding SettingsVM}"/>
+        </TabItem>
+        <TabItem Header="连接设备">
+            <view:ComView DataContext="{Binding ComVM}"/>
         </TabItem>
         <TabItem Header="关于">
             <view:AboutView/>

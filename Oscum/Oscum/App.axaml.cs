@@ -5,6 +5,8 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
+using Microsoft.Extensions.DependencyInjection;
+using Oscum.Service;
 using Oscum.ViewModels;
 using Oscum.Views;
 
@@ -12,6 +14,7 @@ namespace Oscum;
 
 public partial class App : Application
 {
+    private static ServiceProvider? Services { get;  set; }
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
@@ -20,6 +23,19 @@ public partial class App : Application
     public override void OnFrameworkInitializationCompleted()
     {
         CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.GetCultureInfo("en-US");
+
+        #region 依赖注入(DI)
+
+        ServiceCollection services = new ();
+        services.AddSingleton<ComUnitService>();
+        services.AddSingleton<MainViewModel>();
+        services.AddSingleton<ComViewModel>();
+        services.AddSingleton<RealTimeViewModel>();
+        services.AddSingleton<SettingViewModel>();
+        services.AddSingleton<TestViewModel>();
+        Services = services.BuildServiceProvider();
+
+        #endregion
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             // Avoid duplicate validations from both Avalonia and the CommunityToolkit. 
@@ -27,14 +43,14 @@ public partial class App : Application
             DisableAvaloniaDataAnnotationValidation();
             desktop.MainWindow = new MainWindow
             {
-                DataContext = new MainViewModel()
+                DataContext = Services.GetRequiredService<MainViewModel>()
             };
         }
         else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
         {
             singleViewPlatform.MainView = new MainView
             {
-                DataContext = new MainViewModel()
+                DataContext = Services.GetRequiredService<MainViewModel>()
             };
         }
 

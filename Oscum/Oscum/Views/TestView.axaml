@@ -5,11 +5,12 @@
              xmlns:models="clr-namespace:Oscum.Models"
              xmlns:converters="clr-namespace:Oscum.Converters"
              xmlns:vm="clr-namespace:Oscum.ViewModels"
+             xmlns:design="clr-namespace:Oscum.Design"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Oscum.Views.TestView"
              x:DataType="vm:TestViewModel">
     <Design.DataContext>
-        <vm:TestViewModel/>
+        <design:TestViewDesignModel/>
     </Design.DataContext>
     <UserControl.Resources>
         <converters:TureToGreenConverter x:Key="TureToGreenConverter"/>

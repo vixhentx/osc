@@ -17,6 +17,8 @@
     <PackageVersion Include="KaitaiStruct.Runtime.CSharp" Version="0.11.0" />
     <PackageVersion Include="LiveCharts" Version="0.9.7" />
     <PackageVersion Include="LiveChartsCore.SkiaSharpView.Avalonia" Version="2.0.0-rc6.1" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="9.0.10" />
+    <PackageVersion Include="System.IO.Ports" Version="9.0.10" />
     <PackageVersion Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.0.1.15" />
   </ItemGroup>
 </Project>
