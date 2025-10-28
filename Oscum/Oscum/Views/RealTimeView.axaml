@@ -38,6 +38,10 @@
                 <Run Text="{Binding ComUnitService.ComUnit[Period], FallbackValue=null}"/>
             </TextBlock>
             <TextBlock>
+                <Run Text="幅值:" />
+                <Run Text="{Binding ComUnitService.ComUnit[Amp], FallbackValue=null}"/>
+            </TextBlock>
+            <TextBlock>
                 <Run Text="占空比:"/>
                 <Run Text="{Binding ComUnitService.ComUnit[Duty], FallbackValue=null}"/>
                 <Run Text="%"/>

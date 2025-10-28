@@ -6,6 +6,7 @@ using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
 using Microsoft.Extensions.DependencyInjection;
+using Oscum.Design;
 using Oscum.Service;
 using Oscum.ViewModels;
 using Oscum.Views;
@@ -27,12 +28,16 @@ public partial class App : Application
         #region 依赖注入(DI)
 
         ServiceCollection services = new ();
+        #if DEBUG
+        services.AddSingleton<MainViewModel>(new MainViewDesignModel());
+        #else
         services.AddSingleton<ComUnitService>();
         services.AddSingleton<MainViewModel>();
         services.AddSingleton<ComViewModel>();
         services.AddSingleton<RealTimeViewModel>();
         services.AddSingleton<SettingViewModel>();
         services.AddSingleton<TestViewModel>();
+        #endif
         Services = services.BuildServiceProvider();
 
         #endregion

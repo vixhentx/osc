@@ -9,9 +9,9 @@
              x:Class="Oscum.Views.MainView"
              x:DataType="vm:MainViewModel">
     <Design.DataContext>
-    <design:MainViewDesignModel />
+        <design:MainViewDesignModel />
     </Design.DataContext>
-    <TabControl>
+    <TabControl SelectedIndex="{Binding SelectedTabIndex, Mode=TwoWay}">
         <TabItem Header="实时" IsVisible="{Binding ComUnitService.ComUnit, Converter={x:Static ObjectConverters.IsNotNull}}">
             <view:RealTimeView DataContext="{Binding RealTimeVM}"/>
         </TabItem>
@@ -21,7 +21,7 @@
         <TabItem Header="设置" IsVisible="{Binding ComUnitService.ComUnit, Converter={x:Static ObjectConverters.IsNotNull}}">
             <view:SettingView DataContext="{Binding SettingsVM}"/>
         </TabItem>
-        <TabItem Header="连接设备">
+        <TabItem Header="连接">
             <view:ComView DataContext="{Binding ComVM}"/>
         </TabItem>
         <TabItem Header="关于">

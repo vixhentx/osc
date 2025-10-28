@@ -19,7 +19,7 @@ public class OscData : ObservableObject
     private Dictionary<SettingEnum, ushort> outputBuffer = [];
     public double this[RealTimeEnum realtimeData] 
     {
-        get => realTimeDatas[realtimeData];
+        get => realTimeDatas.GetValueOrDefault(realtimeData, 0);
         set
         {
             double oldValue = this[realtimeData];
