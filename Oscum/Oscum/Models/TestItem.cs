@@ -11,7 +11,7 @@ namespace Oscum.Models
     public partial class TestItem : ObservableObject
     {
         [ObservableProperty]
-        private FpgaProtocol.TestItemEnum _property;
+        private FpgaProtocol.TestItemEnum id;
 
         [ObservableProperty]
         private float _target;

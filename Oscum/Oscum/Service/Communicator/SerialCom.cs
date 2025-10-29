@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics;
 using System.IO.Ports;
+using System.Threading.Tasks;
 
 namespace Oscum.Service;
 
@@ -11,11 +12,12 @@ public class SerialCom : ICom
     public required int BaudRate { get; set; }
     public required string Name { get; set; }
 
-    public bool IsOpen { get; private set; }
+    public bool IsRunning { get; private set; }
+
 
     public void Open()
     {
-        if (IsOpen) return;
+        if (IsRunning) return;
         serialPort = new()
         {
             PortName = Name,
@@ -28,7 +30,7 @@ public class SerialCom : ICom
         try
         {
             serialPort.Open();
-            IsOpen = true;
+            IsRunning = true;
         }
         catch (Exception ex)
         {
@@ -40,7 +42,7 @@ public class SerialCom : ICom
     {
         try
         {
-            if(!IsOpen) return;
+            if(!IsRunning) return;
             serialPort!.Close();
             serialPort.DataReceived -= OnDataReceived;
         }
@@ -53,18 +55,11 @@ public class SerialCom : ICom
 
     public event EventHandler<byte[]>? DataReceived;
 
-    public void Send(byte[] data)
+    public async Task SendAsync(byte[] data)
     {
-        if(!IsOpen) return;
-
-        try
+        if (IsRunning && serialPort != null)
         {
-            serialPort!.Write(data, 0, data.Length);
-        }
-        catch (Exception ex)
-        {
-            Debug.WriteLine($"Error: sending data: {ex.Message}");
-            throw;
+            await serialPort.BaseStream.WriteAsync(data);
         }
     }
     private void OnDataReceived(object sender, SerialDataReceivedEventArgs e)

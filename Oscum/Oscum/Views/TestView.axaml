@@ -20,29 +20,33 @@
             <Button Content="添加" Command="{Binding AppendItemCommand}"/>
             <Button Content="移除" Command="{Binding RemoveItemCommand}"/>
         </StackPanel>
-        <ListBox ItemsSource="{Binding Items}" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"
-                 SelectionMode="Single">
-            <ListBox.ItemTemplate>
-                <DataTemplate x:DataType="models:TestItem">
-                    <Border Background="{Binding IsPassed, Converter={StaticResource TureToGreenConverter}}">
-                        <UniformGrid Rows="1">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="项目: "/>
-                                <ComboBox ItemsSource="{Binding AllProperties}" SelectedItem="{Binding Property, Mode=TwoWay}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="目标值: "/>
-                                <TextBox Text="{Binding Target}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="容差: "/>
-                                <NumericUpDown Value="{Binding Tolerance, Mode=TwoWay}" Minimum="0" Maximum="100"/>
-                                <Label Content="%"/>
-                            </StackPanel>
-                        </UniformGrid>
-                    </Border>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <Panel>
+            <ListBox ItemsSource="{Binding Items}" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"
+                     SelectionMode="Single">
+                <ListBox.ItemTemplate>
+                    <DataTemplate x:DataType="models:TestItem">
+                        <Border Background="{Binding IsPassed, Converter={StaticResource TureToGreenConverter}}">
+                            <UniformGrid Rows="1">
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="项目: "/>
+                                    <ComboBox ItemsSource="{Binding AllProperties}" SelectedItem="{Binding Id, Mode=TwoWay}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="目标值: "/>
+                                    <TextBox Text="{Binding Target}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="容差: "/>
+                                    <NumericUpDown Value="{Binding Tolerance, Mode=TwoWay}" Minimum="0" Maximum="100"/>
+                                    <Label Content="%"/>
+                                </StackPanel>
+                            </UniformGrid>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10"
+                    Content="发送测试项目" Command="{Binding SendTest}" />
+        </Panel>
     </DockPanel>
 </UserControl>

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Oscum.Models;
@@ -12,7 +13,8 @@ namespace Oscum.ViewModels
     public partial class TestViewModel : ViewModelBase, IDisposable
     {
         private readonly DataParsingService _dataParser;
-        public ComUnitService ComUnitService { get; }
+        private readonly ComUnitService _comUnitService;
+        private readonly CommandService _commandService;
 
         [ObservableProperty]
         [NotifyCanExecuteChangedFor(nameof(RemoveItemCommand))]
@@ -21,9 +23,10 @@ namespace Oscum.ViewModels
         [ObservableProperty]
         private ObservableCollection<TestItem> _items = [];
 
-        protected TestViewModel(ComUnitService comUnitService, DataParsingService dataParser)
+        protected TestViewModel(ComUnitService comUnitService, DataParsingService dataParser, CommandService commandService)
         {
-            ComUnitService = comUnitService;
+            _comUnitService = comUnitService;
+            _commandService = commandService;
             _dataParser = dataParser;
             _dataParser.OnTestReportReceived += OnTestReportReceived;
         }
@@ -35,7 +38,7 @@ namespace Oscum.ViewModels
             {
                 // Find the matching test item(s) in our UI list
                 // No cast needed as both are now the same Kaitai enum
-                var uiItem = Items.FirstOrDefault(i => i.Property == reportItem.Item);
+                var uiItem = Items.FirstOrDefault(i => i.Id == reportItem.Item);
 
                 if (uiItem != null)
                 {
@@ -54,6 +57,9 @@ namespace Oscum.ViewModels
         
         private bool CanRemoveItem() => 
             SelectedIndex >= 0 && SelectedIndex < Items.Count;
+
+        [RelayCommand]
+        public Task SendTest() => _commandService.SendTestItemAsync(Items.ToArray());
         
         public void Dispose()
         {
