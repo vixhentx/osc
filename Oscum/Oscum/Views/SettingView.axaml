@@ -15,22 +15,27 @@
     <UserControl.Resources>
         <converters:EnumNameConverter x:Key="EnumNameConverter"/>
     </UserControl.Resources>
-    <ItemsControl ItemsSource="{Binding Items}">
-        <ItemsControl.ItemTemplate>
-            <DataTemplate x:DataType="models:SettingItem">
-                <Panel>
-                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left"
-                               Text="{Binding Id, Converter={StaticResource EnumNameConverter}}"/>
-                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <Run Text="当前值: "/>
-                        <Run Text="{Binding NowValue}"/>
-                    </TextBlock>
-                    <StackPanel  VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">
-                        <NumericUpDown Value="{Binding NewValue}" BorderThickness="0"/>
-                        <Button Content="应用" Command="{Binding ApplyCommand}"/>
-                    </StackPanel>
-                </Panel>
-            </DataTemplate>
-        </ItemsControl.ItemTemplate>
-    </ItemsControl>
+    <Panel>
+        <ItemsControl ItemsSource="{Binding Items}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate x:DataType="models:SettingItem">
+                    <Panel>
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left"
+                                   Text="{Binding DisplayName}"/>
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Run Text="当前值: "/>
+                            <Run Text="{Binding NowValue}"/>
+                        </TextBlock>
+                        <StackPanel  VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">
+                            <TextBlock VerticalAlignment="Center" Text="设定值: "/>
+                            <NumericUpDown VerticalAlignment="Center"
+                                           Value="{Binding NewValue}" BorderThickness="0"/>
+                        </StackPanel>
+                    </Panel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl> 
+        <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" ZIndex="1"
+            Content="发送设置" Command="{Binding SendSetting}" />
+    </Panel>
 </UserControl>

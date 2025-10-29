@@ -4,20 +4,24 @@ using Oscum.Service;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
+using CommunityToolkit.Mvvm.Input;
 
 namespace Oscum.ViewModels
 {
     public partial class SettingViewModel : ViewModelBase, IDisposable
     {
+        private readonly CommandService _commandService;
         private readonly DataParsingService _dataParser;
-        public ComUnitService ComUnitService { get; }
+        private readonly ComUnitService _comUnitService;
 
         public ObservableCollection<SettingItem> Items { get; } = [];
 
-        public SettingViewModel(ComUnitService comUnitService, DataParsingService dataParser)
+        public SettingViewModel(ComUnitService comUnitService, DataParsingService dataParser, CommandService commandService)
         {
-            ComUnitService = comUnitService;
+            _comUnitService = comUnitService;
             _dataParser = dataParser;
+            _commandService = commandService;
             
             // Initialize settings using the Kaitai enum
             Items.Add(new(FpgaProtocol.SettingItemEnum.Baud, "波特率"));
@@ -38,6 +42,18 @@ namespace Oscum.ViewModels
                 {
                     uiItem.NewValue = data.Value;
                 }
+            }
+        }
+
+        [RelayCommand]
+        public async Task SendSetting()
+        {
+            var items = Items.Where(item => item.IsDirty).ToArray();
+            await _commandService.SendSettingAsync(items);
+            //一种避开ui调度的方式
+            foreach (var item in items)
+            {
+                item.NowValue = item.NewValue;
             }
         }
 

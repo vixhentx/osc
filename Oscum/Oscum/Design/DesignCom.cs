@@ -1,4 +1,6 @@
 using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Timers;
 using Oscum.Service;
 
@@ -33,17 +35,17 @@ public class DesignCom : ICom
 
     public required string Name { get; init; }
 
-    public bool IsOpen { get; private set; }
+    public bool IsRunning { get; private set; }
     
     public virtual void Open()
     {
-        IsOpen = true;
+        IsRunning = true;
         timer.Start();
         Console.WriteLine($"Opening {Name}");
     }
     public virtual void Close()
     {
-        IsOpen = false;
+        IsRunning = false;
         timer.Stop();
         Console.WriteLine($"Closing {Name}");
     }
@@ -51,9 +53,9 @@ public class DesignCom : ICom
     public event EventHandler<byte[]>? DataReceived;
     protected void OnDataReceived(byte[] data) => DataReceived?.Invoke(this, data);
 
-    public void Send(byte[] data)
+    public async Task SendAsync(byte[] data)
     {
-        if (!IsOpen) Console.Error.WriteLine($"Cannot send data, {Name} is not open");
-        // Console.WriteLine($"Sending data to {Name}: {BitConverter.ToString(data)}");
-    }
+        Debug.WriteLine($"MockSineCom: Received {data.Length} bytes to send.");
+        await Task.CompletedTask;
+    } 
 }

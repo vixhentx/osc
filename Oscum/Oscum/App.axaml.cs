@@ -30,6 +30,8 @@ public partial class App : Application
         services.AddSingleton<MainViewModel>(new MainViewDesignModel());
         #else
         services.AddSingleton<ComUnitService>();
+        services.AddSingleton<CommandService>();
+        services.AddSingleton<DataParsingService>();
         services.AddSingleton<MainViewModel>();
         services.AddSingleton<ComViewModel>();
         services.AddSingleton<RealTimeViewModel>();

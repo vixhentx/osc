@@ -9,7 +9,7 @@ namespace Oscum.ViewModels
 {
     public partial class ComViewModel : ViewModelBase
     {
-        public ComUnitService ComUnitService { get; }
+        public ComUnitService _comUnitService;
 
         [ObservableProperty]
         private IList<ICom> _coms = [];
@@ -19,11 +19,11 @@ namespace Oscum.ViewModels
 
         [RelayCommand]
         private void RefreshComPorts() =>
-            Coms = ComUnitService.GetComs();
+            Coms = _comUnitService.GetComs();
 
         public ComViewModel(ComUnitService comUnitService)
         {
-            ComUnitService = comUnitService;
+            _comUnitService = comUnitService;
             RefreshComPorts(); // Load ports on startup
             PropertyChanged += OnPropertyChanged;
         }
@@ -33,26 +33,26 @@ namespace Oscum.ViewModels
             if (e.PropertyName == nameof(ComSelected))
             {
                 // Close old port if it exists
-                if (ComUnitService.CurrentCom is { IsOpen: true })
+                if (_comUnitService.CurrentCom is { IsRunning: true })
                 {
-                    ComUnitService.CurrentCom.Close();
+                    _comUnitService.CurrentCom.Close();
                 }
 
                 // Set new port
-                ComUnitService.CurrentCom = ComSelected;
+                _comUnitService.CurrentCom = ComSelected;
 
                 // Open new port if it exists
-                if (ComUnitService.CurrentCom is { IsOpen: false })
+                if (_comUnitService.CurrentCom is { IsRunning: false })
                 {
                     try
                     {
-                        ComUnitService.CurrentCom.Open();
+                        _comUnitService.CurrentCom.Open();
                     }
                     catch (System.Exception ex)
                     {
                         // Handle open error (e.g., show a dialog to the user)
                         Debug.WriteLine($"Failed to open port: {ex.Message}");
-                        ComUnitService.CurrentCom = null;
+                        _comUnitService.CurrentCom = null;
                         ComSelected = null; // Reset selection
                     }
                 }
