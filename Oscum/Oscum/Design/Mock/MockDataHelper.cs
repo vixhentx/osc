@@ -1,6 +1,6 @@
 namespace Oscum.Design.Mock;
 
-public class SquareCom
+public class MockDataHelper
 {
     
 }
