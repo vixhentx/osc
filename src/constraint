@@ -1,0 +1,91 @@
+#约束条件
+# 时钟约束 - 27MHz系统时钟
+create_clock -name clk_27m -period 37.037 [get_ports clk_50m]
+
+# 输入端口约束
+set_property PACKAGE_PIN D18 [get_ports clk_50m]
+set_property IOSTANDARD LVCMOS33 [get_ports clk_50m]
+
+set_property PACKAGE_PIN P15 [get_ports rst_n]
+set_property IOSTANDARD LVCMOS33 [get_ports rst_n]
+
+set_property PACKAGE_PIN J14 [get_ports adc_start]
+set_property IOSTANDARD LVCMOS33 [get_ports adc_start]
+
+set_property PACKAGE_PIN K17 [get_ports adc_sdo]
+set_property IOSTANDARD LVCMOS33 [get_ports adc_sdo]
+
+# 输出端口约束 - ADC控制
+set_property PACKAGE_PIN K15 [get_ports adc_sclk]
+set_property IOSTANDARD LVCMOS33 [get_ports adc_sclk]
+
+set_property PACKAGE_PIN K16 [get_ports adc_cs_n]
+set_property IOSTANDARD LVCMOS33 [get_ports adc_cs_n]
+
+# 输出端口约束 - ADC数据输出
+set_property PACKAGE_PIN A10 [get_ports {adc_data[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {adc_data[0]}]
+
+set_property PACKAGE_PIN A11 [get_ports {adc_data[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {adc_data[1]}]
+
+set_property PACKAGE_PIN B10 [get_ports {adc_data[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {adc_data[2]}]
+
+set_property PACKAGE_PIN B11 [get_ports {adc_data[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {adc_data[3]}]
+
+set_property PACKAGE_PIN C10 [get_ports {adc_data[4]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {adc_data[4]}]
+
+set_property PACKAGE_PIN C11 [get_ports {adc_data[5]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {adc_data[5]}]
+
+set_property PACKAGE_PIN D10 [get_ports {adc_data[6]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {adc_data[6]}]
+
+set_property PACKAGE_PIN D11 [get_ports {adc_data[7]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {adc_data[7]}]
+
+# ADC就绪标志
+set_property PACKAGE_PIN G12 [get_ports adc_ready]
+set_property IOSTANDARD LVCMOS33 [get_ports adc_ready]
+
+# LED显示输出
+set_property PACKAGE_PIN A20 [get_ports {led[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led[0]}]
+
+set_property PACKAGE_PIN C18 [get_ports {led[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led[1]}]
+
+set_property PACKAGE_PIN C19 [get_ports {led[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led[2]}]
+
+set_property PACKAGE_PIN E18 [get_ports {led[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led[3]}]
+
+set_property PACKAGE_PIN A17 [get_ports {led[4]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led[4]}]
+
+set_property PACKAGE_PIN A18 [get_ports {led[5]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led[5]}]
+
+set_property PACKAGE_PIN C17 [get_ports {led[6]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led[6]}]
+
+set_property PACKAGE_PIN B17 [get_ports {led[7]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led[7]}]
+
+# 输入输出延迟约束
+set_input_delay -clock clk_27m -max 5 [get_ports adc_sdo]
+set_input_delay -clock clk_27m -max 5 [get_ports adc_start]
+set_input_delay -clock clk_27m -max 5 [get_ports rst_n]
+
+set_output_delay -clock clk_27m -max 5 [get_ports adc_sclk]
+set_output_delay -clock clk_27m -max 5 [get_ports adc_cs_n]
+set_output_delay -clock clk_27m -max 5 [get_ports adc_data[*]]
+set_output_delay -clock clk_27m -max 5 [get_ports adc_ready]
+set_output_delay -clock clk_27m -max 5 [get_ports led[*]]
+
+# 虚假路径
+set_false_path -from [get_ports rst_n]
