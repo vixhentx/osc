@@ -11,7 +11,8 @@
     <Design.DataContext><design:RealTimeViewDesignModel/></Design.DataContext>
     <Panel>
         <lvc:CartesianChart x:Name="Chart" Margin="10"
-            ZoomMode="Both">
+                            Series="{Binding WaveSeries}"
+                            ZoomMode="Both">
             <lvc:CartesianChart.XAxes>
                 <lvc:XamlAxis
                     AxisName="{Binding XAxisName}"
@@ -29,21 +30,21 @@
                      Rows="1">
             <TextBlock>
                 <Run Text="频率:"/>
+                <Run Text="{Binding Freq, StringFormat='{}{0:F2}'}"/> 
                 <Run Text="{Binding FreqUnit}"/>
-                <Run Text="{Binding ComUnitService.ComUnit[Freq], FallbackValue=null}"/>
             </TextBlock>
             <TextBlock>
                 <Run Text="周期:"/>
+                <Run Text="{Binding Period, StringFormat='{}{0:F2}'}"/>
                 <Run Text="{Binding TimeUnit}"/>
-                <Run Text="{Binding ComUnitService.ComUnit[Period], FallbackValue=null}"/>
             </TextBlock>
             <TextBlock>
                 <Run Text="幅值:" />
-                <Run Text="{Binding ComUnitService.ComUnit[Amp], FallbackValue=null}"/>
+                <Run Text="{Binding Amp, StringFormat='{}{0:F2}'}"/>
             </TextBlock>
             <TextBlock>
                 <Run Text="占空比:"/>
-                <Run Text="{Binding ComUnitService.ComUnit[Duty], FallbackValue=null}"/>
+                <Run Text="{Binding Duty, StringFormat='{}{0:F2}'}"/>
                 <Run Text="%"/>
             </TextBlock>
         </UniformGrid>
