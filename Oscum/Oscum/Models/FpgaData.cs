@@ -1,6 +1,6 @@
 namespace Oscum.Models;
 
-public class TestItem
+public class FpgaData
 {
     
 }
