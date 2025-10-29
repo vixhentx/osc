@@ -1,24 +1,18 @@
 using System;
 using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using Kaitai;
 
-namespace Oscum.Models;
+namespace Oscum.ViewModels;
 
 public partial class SettingItem<T>(string displayName, Action<T> setter) : ObservableObject
 {
     [ObservableProperty]
-    private T? nowValue;
-
-    [ObservableProperty]
-    private T? newValue;
+    private T? value;
 
     public string DisplayName { get; } = displayName;
 
-    [RelayCommand]
-    private void Apply()
+    partial void OnValueChanged(T? newValue)
     {
-        if (NewValue != null)
-            setter(NewValue);
+        if (newValue != null)
+            setter(newValue);
     }
 }

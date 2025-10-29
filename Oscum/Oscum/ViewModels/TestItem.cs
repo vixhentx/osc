@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
 using CommunityToolkit.Mvvm.ComponentModel;
-using Kaitai;
 
-namespace Oscum.Models;
+namespace Oscum.ViewModels;
 
 public partial class TestItem<T> : ObservableObject
 {

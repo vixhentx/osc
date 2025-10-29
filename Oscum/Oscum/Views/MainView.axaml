@@ -11,16 +11,23 @@
     <Design.DataContext>
         <design:MainViewDesignModel />
     </Design.DataContext>
+    
     <TabControl SelectedIndex="{Binding SelectedTabIndex, Mode=TwoWay}">
-        <TabItem Header="实时" IsVisible="{Binding ComUnitService.ComUnit, Converter={x:Static ObjectConverters.IsNotNull}}">
+        <!-- 
+          Updated IsVisible binding to use ComUnitService.CurrentCom 
+          (assuming you have an ObjectConverters.IsNotNull converter)
+        -->
+        <TabItem Header="实时" IsVisible="{Binding ComUnitService.CurrentCom, Converter={x:Static ObjectConverters.IsNotNull}}">
             <view:RealTimeView DataContext="{Binding RealTimeVM}"/>
         </TabItem>
-        <TabItem Header="测试" IsVisible="{Binding ComUnitService.ComUnit, Converter={x:Static ObjectConverters.IsNotNull}}">
+        <TabItem Header="测试" IsVisible="{Binding ComUnitService.CurrentCom, Converter={x:Static ObjectConverters.IsNotNull}}">
             <view:TestView DataContext="{Binding TestVM}"/>
         </TabItem>
-        <TabItem Header="设置" IsVisible="{Binding ComUnitService.ComUnit, Converter={x:Static ObjectConverters.IsNotNull}}">
+        <TabItem Header="设置" IsVisible="{Binding ComUnitService.CurrentCom, Converter={x:Static ObjectConverters.IsNotNull}}">
             <view:SettingView DataContext="{Binding SettingsVM}"/>
         </TabItem>
+        
+        <!-- These tabs are always visible -->
         <TabItem Header="连接">
             <view:ComView DataContext="{Binding ComVM}"/>
         </TabItem>
