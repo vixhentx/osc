@@ -1,0 +1,10 @@
+compile
+synthesize
+place_route
+device_map
+constraint_check
+report_timing
+generate_bitstream
+temp_projects
+impl.tcl
+multiseed_summary.csv
