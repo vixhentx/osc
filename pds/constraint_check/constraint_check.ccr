@@ -1,0 +1,82 @@
+##### Written on 2025/10/30 18:14:07 ###############################
+
+
+##### INFO ##################################################
+
+Current device : 
+	PG2L100H-6FBG676
+
+Top Module : 
+	adc_fft_top
+
+Constraint File(s) : 
+	C:/Users/32188/Desktop/adcfft/.fdc/yueshu.fdc
+
+##### SUMMARY ######################################################
+
+Found 0 error(s), 0 critical warning(s), 43 warning(s), out of 106 constraint(s)
+
+
+Inapplicable constraints(except overwritten constraints):
+********************************************
+
+
+Constraints with issues:
+********************************************
+
+
+Issues without commands:
+********************************************
+
+
+Unconstrained ports:
+********************************************
+
+W: ConstraintEditor-4019: Port 'dominant_frequency[2]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'dominant_frequency[3]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'dominant_frequency[4]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'dominant_frequency[5]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'dominant_frequency[6]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'dominant_frequency[7]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'dominant_frequency[8]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'dominant_frequency[9]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'dominant_frequency[10]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'dominant_frequency[11]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'dominant_frequency[12]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'dominant_frequency[13]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'dominant_frequency[14]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'dominant_frequency[15]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[3]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[4]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[5]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[6]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[7]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[8]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[9]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[10]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[11]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[12]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[13]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[14]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[15]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[16]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[17]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[18]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[19]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[20]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[21]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[22]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[23]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[24]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[25]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[26]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[27]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[28]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[29]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[30]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'fft_magnitude[31]' unspecified I/O constraint.
+
+Constraints with matching wildcard expressions:
+********************************************
+
+
