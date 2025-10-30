@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tables>
+    <table id="compile_source_files" title="Design Files Read" column_number="2">
+        <column_headers>
+            <data>File Name</data>
+            <data>File Type</data>
+        </column_headers>
+        <row>
+            <data>C:/Users/32188/Desktop/osc/pds/source/.v/adc_fft_top.v</data>
+            <data>Verilog</data>
+        </row>
+        <row>
+            <data>C:/Users/32188/Desktop/osc/pds/source/.v/adc_capture.v</data>
+            <data>Verilog</data>
+        </row>
+        <row>
+            <data>C:/Users/32188/Desktop/osc/pds/source/.v/data_preprocessor.v</data>
+            <data>Verilog</data>
+        </row>
+        <row>
+            <data>C:/Users/32188/Desktop/osc/pds/source/.v/fft_processor.v</data>
+            <data>Verilog</data>
+        </row>
+        <row>
+            <data>C:/Users/32188/Desktop/osc/pds/source/.v/pll.v</data>
+            <data>Verilog</data>
+        </row>
+        <row>
+            <data>C:/Users/32188/Desktop/osc/pds/source/.v/result_processor.v</data>
+            <data>Verilog</data>
+        </row>
+        <row>
+            <data>C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_adc/u_pango_adc.idf</data>
+            <data>IP</data>
+        </row>
+        <row>
+            <data>C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/u_pango_fft.idf</data>
+            <data>IP</data>
+        </row>
+    </table>
+    <table id="compile_runtime" title="Compile Runtime &amp; Memory" column_number="7">
+        <column_headers>
+            <data>Cpu Time</data>
+            <data>Process Cpu Time</data>
+            <data>Real Time</data>
+            <data>Peak Memory (MB)</data>
+            <data>Operation System</data>
+            <data>CPU</data>
+            <data>RAM(GB)</data>
+        </column_headers>
+        <row>
+            <data>0h:0m:1s</data>
+            <data>0h:0m:1s</data>
+            <data>0h:0m:5s</data>
+            <data>203</data>
+            <data>WINDOWS 10 x86_64</data>
+            <data>Unknown</data>
+            <data>32</data>
+        </row>
+    </table>
+    <table id="compile_messages" title="Compile Messages" column_number="1">
+        <column_headers/>
+        <row>
+            <data message="4">Enable Verilog2k features and keywords</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0001: Analyzing file C:/Users/32188/Desktop/osc/pds/source/.v/adc_fft_top.v</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/source/.v/adc_fft_top.v(line number: 3)] Analyzing module adc_fft_top (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0001: Analyzing file C:/Users/32188/Desktop/osc/pds/source/.v/adc_capture.v</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/source/.v/adc_capture.v(line number: 3)] Analyzing module adc_capture (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0001: Analyzing file C:/Users/32188/Desktop/osc/pds/source/.v/data_preprocessor.v</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/source/.v/data_preprocessor.v(line number: 3)] Analyzing module data_preprocessor (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0001: Analyzing file C:/Users/32188/Desktop/osc/pds/source/.v/fft_processor.v</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/source/.v/fft_processor.v(line number: 3)] Analyzing module fft_processor (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0001: Analyzing file C:/Users/32188/Desktop/osc/pds/source/.v/pll.v</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/source/.v/pll.v(line number: 3)] Analyzing module pango_pll (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0001: Analyzing file C:/Users/32188/Desktop/osc/pds/source/.v/result_processor.v</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/source/.v/result_processor.v(line number: 3)] Analyzing module result_processor (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0001: Analyzing file C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/u_pango_fft.v</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/u_pango_fft.v(line number: 13)] Analyzing module u_pango_fft (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0001: Analyzing file C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 83)] Analyzing module ipsxe_fft_addsub_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 296)] Analyzing module ipsxe_fft_apm_addsub_dual_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 601)] Analyzing module ipsxe_fft_apm_addsub_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 959)] Analyzing module ipsxe_fft_apm_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 1259)] Analyzing module ipsxe_fft_burst_input_ctrl_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 1518)] Analyzing module ipsxe_fft_cfg_ctrl_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 1658)] Analyzing module ipsxe_fft_comp_addsub_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 2167)] Analyzing module ipsxe_fft_comp_mult_t10_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 2992)] Analyzing module ipsxe_fft_comp_mult_t11_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 3820)] Analyzing module ipsxe_fft_comp_mult_t12_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 4890)] Analyzing module ipsxe_fft_comp_mult_t13_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 6092)] Analyzing module ipsxe_fft_comp_mult_t14_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 7543)] Analyzing module ipsxe_fft_comp_mult_t15_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 8654)] Analyzing module ipsxe_fft_comp_mult_t16_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 9134)] Analyzing module ipsxe_fft_comp_mult_t17_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 9772)] Analyzing module ipsxe_fft_comp_mult_t18_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 10539)] Analyzing module ipsxe_fft_comp_mult_t19_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 11247)] Analyzing module ipsxe_fft_comp_mult_t1_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 11615)] Analyzing module ipsxe_fft_comp_mult_t2_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 12105)] Analyzing module ipsxe_fft_comp_mult_t3_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 12795)] Analyzing module ipsxe_fft_comp_mult_t4_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 13503)] Analyzing module ipsxe_fft_comp_mult_t5_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 14224)] Analyzing module ipsxe_fft_comp_mult_t6_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 14996)] Analyzing module ipsxe_fft_comp_mult_t7_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 15777)] Analyzing module ipsxe_fft_comp_mult_t8_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 16543)] Analyzing module ipsxe_fft_comp_mult_t9_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 17368)] Analyzing module ipsxe_fft_comp_mult_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 17887)] Analyzing module ipsxe_fft_comp_round_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 18172)] Analyzing module ipsxe_fft_drm_sdpram_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 18519)] Analyzing module ipsxe_fft_drm_sreg_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 18675)] Analyzing module ipsxe_fft_dynamic_comp_round_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 18882)] Analyzing module ipsxe_fft_dynamic_round_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 19124)] Analyzing module ipsxe_fft_lut_addsub_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 19336)] Analyzing module ipsxe_fft_output_ctrl_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 19814)] Analyzing module ipsxe_fft_output_process_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 20431)] Analyzing module ipsxe_fft_overflow_det_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 20811)] Analyzing module ipsxe_fft_pipeline_core_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 21210)] Analyzing module ipsxe_fft_pipeline_input_ctrl_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 21572)] Analyzing module ipsxe_fft_r22bf_as_multi_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 21985)] Analyzing module ipsxe_fft_r22bf_as_paral_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 22375)] Analyzing module ipsxe_fft_r22bf_as_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 22677)] Analyzing module ipsxe_fft_r22_dif_group_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 22954)] Analyzing module ipsxe_fft_r22_mult_by_j_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 23174)] Analyzing module ipsxe_fft_r22_mult_by_twiddle_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 23404)] Analyzing module ipsxe_fft_r2bf_as_core_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 23638)] Analyzing module ipsxe_fft_r2_dit_bf_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 24266)] Analyzing module ipsxe_fft_r2_dit_ctrl_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 25049)] Analyzing module ipsxe_fft_r2_dit_mult_by_twiddle_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 25618)] Analyzing module ipsxe_fft_radix2_burst_core_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 26205)] Analyzing module ipsxe_fft_round_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 26389)] Analyzing module ipsxe_fft_sdpram_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 26536)] Analyzing module ipsxe_fft_shift_ram_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 77853)] Analyzing module ipsxe_fft_sin_distram_rom_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">[C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 77853)] Convert attribute name from syn_romstyle to PAP_RAM_STYLE</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 178392)] Analyzing module ipsxe_fft_sin_drm_rom_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">[C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 178392)] Convert attribute name from syn_romstyle to PAP_RAM_STYLE</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 227764)] Analyzing module ipsxe_fft_sin_rom_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 227906)] Analyzing module ipsxe_fft_sreg_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/synplify/ipsxe_fft_core_v1_0_vpAll.vp(line number: 228132)] Analyzing module ipsxe_fft_twiddle_gen_v1_0 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0001: Analyzing file C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/ipsxe_fft_drm_sdpram_18k.v</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/ipsxe_fft_drm_sdpram_18k.v(line number: 18)] Analyzing module ipsxe_fft_drm_sdpram_18k (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0001: Analyzing file C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/ipsxe_fft_drm_sdpram_36k.v</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/ipsxe_fft_drm_sdpram_36k.v(line number: 18)] Analyzing module ipsxe_fft_drm_sdpram_36k (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0001: Analyzing file C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 20)] Analyzing module ipsxe_fft_drm_sdpram_v1_6a_18k (library work)</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 292)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 293)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 296)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 300)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 304)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 308)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 316)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 317)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 320)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 321)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 324)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 325)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 328)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 329)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 332)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 333)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 336)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 337)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 340)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 341)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 344)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 345)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 348)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 349)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 352)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 353)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 356)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 357)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 360)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 361)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 364)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 365)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 368)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 369)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 373)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 374)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 377)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 378)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 382)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 383)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 388)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 389)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 392)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 393)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 398)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_18k.v(line number: 399)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0001: Analyzing file C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 20)] Analyzing module ipsxe_fft_drm_sdpram_v1_6a_36k (library work)</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 352)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 353)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 356)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 360)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 364)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 368)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 376)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 377)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 380)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 381)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 384)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 385)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 388)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 389)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 392)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 393)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 396)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 397)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 400)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 401)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 404)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 405)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 408)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 409)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 412)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 413)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 416)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 417)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 420)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 421)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 424)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 425)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 428)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 429)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 432)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 433)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 436)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 437)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 440)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 441)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 445)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 446)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 449)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 450)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 454)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 455)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 460)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 461)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 464)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 465)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 468)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 469)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 474)] Ignore 'system task' $display</data>
+        </row>
+        <row>
+            <data message="5">Verilog-2008: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/drm_sdpram/rtl/ipsxe_fft_drm_sdpram_v1_6a_36k.v(line number: 475)] Ignore 'system task' $finish</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0001: Analyzing file C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/distram_sreg/ipsxe_fft_distram_sreg.v</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/distram_sreg/ipsxe_fft_distram_sreg.v(line number: 21)] Analyzing module ipsxe_fft_distram_sreg (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0001: Analyzing file C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/distram_sreg/rtl/ipsxe_fft_distributed_shiftregister_v1_3.v</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/distram_sreg/rtl/ipsxe_fft_distributed_shiftregister_v1_3.v(line number: 19)] Analyzing module ipsxe_fft_distributed_shiftregister_v1_3 (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0001: Analyzing file C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/distram_sreg/rtl/ipsxe_fft_distributed_sdpram_v1_2.v</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/distram_sreg/rtl/ipsxe_fft_distributed_sdpram_v1_2.v(line number: 20)] Analyzing module ipsxe_fft_distributed_sdpram_v1_2 (library work)</data>
+        </row>
+        <row>
+            <data message="4">[C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/distram_sreg/rtl/ipsxe_fft_distributed_sdpram_v1_2.v(line number: 29)] Convert attribute name from syn_ramstyle to PAP_RAM_STYLE</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0001: Analyzing file C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/distram_sdpram/ipsxe_fft_distram_sdpram.v</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [C:/Users/32188/Desktop/osc/pds/ipcore/u_pango_fft/rtl/distram_sdpram/ipsxe_fft_distram_sdpram.v(line number: 20)] Analyzing module ipsxe_fft_distram_sdpram (library work)</data>
+        </row>
+        <row>
+            <data message="4">Module &quot;adc_fft_top&quot; is set as top module.</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0003: [C:/Users/32188/Desktop/osc/pds/source/.v/adc_fft_top.v(line number: 3)] Elaborating module adc_fft_top</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0004: [C:/Users/32188/Desktop/osc/pds/source/.v/adc_fft_top.v(line number: 42)] Elaborating instance u_adc_capture</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0003: [C:/Users/32188/Desktop/osc/pds/source/.v/adc_capture.v(line number: 3)] Elaborating module adc_capture</data>
+        </row>
+        <row>
+            <data message="7">Verilog-4072: [C:/Users/32188/Desktop/osc/pds/source/.v/adc_capture.v(line number: 173)] u_pango_adc is referenced to undefined module</data>
+        </row>
+    </table>
+</tables>

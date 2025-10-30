@@ -1,2 +1,2 @@
 logbackup
-pds.log
+*.log
