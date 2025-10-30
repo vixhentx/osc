@@ -65,20 +65,20 @@ namespace Oscum.ViewModels
         {
             Debug.Assert(timeUnitTable.Length == freqUnitTable.Length);
 		
-            (double showVale, int index) = UnitUtils.AutoAdaptUnit(value, timeUnitTable.Length);
+            (double showValue, int index) = UnitUtils.AutoAdaptUnit(value, timeUnitTable.Length);
             TimeUnit = timeUnitTable[index];
             FreqUnit = freqUnitTable[index];
-            XAxisName = $"时间/{showVale}";
+            XAxisName = $"时间/{showValue}{TimeUnit}";
         }
 
         //每一格的电压跨度,单位mV
         [ObservableProperty]
-        protected double _gridYScale;
+        private double _gridYScale;
         partial void OnGridYScaleChanged(double value)
         {
             (double showValue, int index) = UnitUtils.AutoAdaptUnit(value, timeUnitTable.Length);
             VoltUnit = voltageUnitTable[index];
-            YAxisName = $"电压/{showValue}";
+            YAxisName = $"电压/{showValue}{VoltUnit}";
         }
         #endregion
 
@@ -124,7 +124,7 @@ namespace Oscum.ViewModels
                 {
                     // Assuming X-axis is just the index for now
                     // You might want to use Period/WaveCount to calculate time
-                    points.Add(new(i, data.Wave[i]));
+                    points.Add(new(i, data.Wave[i]*3/4096f));
                 }
             }
         }

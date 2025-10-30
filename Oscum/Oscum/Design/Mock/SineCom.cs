@@ -22,7 +22,7 @@ namespace Oscum.Design.Mock
                 float phase = (2 * MathF.PI * i) / WavePointCount;
                 // Simulating a 0-3.3V ADC (12-bit = 4096)
                 float voltage = (Amp / 2) * MathF.Sin(phase + (t * 0.1f)) + (Amp / 2);
-                ushort adcValue = (ushort)((voltage / 3.3f) * 4095);
+                ushort adcValue = (ushort)((voltage / 3) * 4096);
                 _wave.Add(adcValue);
             }
 

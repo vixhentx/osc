@@ -8,7 +8,7 @@ public static class UnitUtils
     public static (double value, int index) AutoAdaptUnit(double value,int tableLength,int unitSpan = 3,int offset = 0)
     {
         double baseIndex = Math.Log10(value);
-        int index = (int) (baseIndex / 3) + offset;
+        int index = (int) (baseIndex / unitSpan) + offset;
         if (index < 0 || index >= tableLength)
             throw new ArgumentOutOfRangeException();
 
